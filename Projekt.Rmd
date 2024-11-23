@@ -1,0 +1,14 @@
+---
+title: "Projekt"
+output: 
+  rmdformats::downcute:
+    self_contained: true
+    default_style: "light"
+    downcute_theme: "default"
+date: "2024-11-23"
+---
+
+
+
+
+
