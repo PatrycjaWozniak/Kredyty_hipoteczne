@@ -9,6 +9,6 @@ date: "2024-11-23"
 ---
 
 
-
+dane <- read.csv("Hipoteczny.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
 
