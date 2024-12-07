@@ -46,6 +46,11 @@ dane %>%
 #Wizualizacjia brakujących danych 
 vis_miss(dane)
 
+#najwięcej brakuje danych w credit history
+library(VIM)
+data <-hotdeck(dane)
+
+
 #Wizualizacjia brakujących zmiennych, według poszczególnych wierszy
 gg_miss_fct(dane, fct = Married)
 gg_miss_fct(dane, fct = Self_Employed)
