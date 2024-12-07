@@ -57,6 +57,8 @@ gg_miss_fct(dane, fct = Property_Area)
 #(1 wiersz braku w Credit_History i Loan_Amount_Team)
 gg_miss_upset(dane, 
               nsets = 3)
+
 #najwięcej brakuje danych w credit history
 library(VIM)
 data <-hotdeck(dane)
+
