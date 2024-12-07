@@ -8,7 +8,53 @@ output:
 date: "2024-11-23"
 ---
 
+library(naniar)
+library(dplyr)
 
 dane <- read.csv("Hipoteczny.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
+#Utworzenie tabeli podsumowującej braki w tabeli 
+miss_var_summary(dane)
 
+#Braki są zauważalne jedynie w: Credit_History, Loan_Amount_Term, LoanAmount
+
+#Utowrzenie tabel podsumowujących według poszczególnych kategori
+dane %>%
+  group_by(Married) %>%
+    miss_var_summary() %>%
+    print(n=22)
+    
+dane %>%
+  group_by(Self_Employed) %>%
+    miss_var_summary() %>%
+    print(n=33)
+
+dane %>%
+  group_by(LoanAmount) %>%
+    miss_var_summary() %>%
+    print(n=10)
+
+dane %>%
+  group_by(Property_Area) %>%
+    miss_var_summary() %>%
+    print(n=33)
+ 
+ 
+#Tabela podsumowująca brakujące wartości według wiersza    
+dane %>%
+  miss_case_table()
+ 
+#Wizualizacjia brakujących danych 
+vis_miss(dane)
+
+#Wizualizacjia brakujących zmiennych, według poszczególnych wierszy
+gg_miss_fct(dane, fct = Married)
+gg_miss_fct(dane, fct = Self_Employed)
+gg_miss_fct(dane, fct = LoanAmount)
+gg_miss_fct(dane, fct = Property_Area)
+  
+#Wizualizacja jak często braki współwystępują między zmiennymi 
+#(1 wiersz braku w Credit_History i Loan_Amount_Team)
+gg_miss_upset(dane, 
+              nsets = 3)
+#najwięcej brakuje danych w credit history
