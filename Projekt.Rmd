@@ -46,6 +46,7 @@ dane %>%
 #Wizualizacjia brakujących danych 
 vis_miss(dane)
 
+
 #Wizualizacjia brakujących zmiennych, według poszczególnych wierszy
 gg_miss_fct(dane, fct = Married)
 gg_miss_fct(dane, fct = Self_Employed)
@@ -56,3 +57,6 @@ gg_miss_fct(dane, fct = Property_Area)
 #(1 wiersz braku w Credit_History i Loan_Amount_Team)
 gg_miss_upset(dane, 
               nsets = 3)
+#najwięcej brakuje danych w credit history
+library(VIM)
+data <-hotdeck(dane)
